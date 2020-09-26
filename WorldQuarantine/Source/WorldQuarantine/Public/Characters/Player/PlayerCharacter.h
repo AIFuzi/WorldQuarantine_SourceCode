@@ -9,5 +9,23 @@ UCLASS()
 class WORLDQUARANTINE_API APlayerCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
+
+public:
+
+	APlayerCharacter();
+
+protected:
+
+	virtual void BeginPlay() override;
+
+public:
+
+	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerDefault)
+		class USpringArmComponent* SprintArm;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerDefault)
+		class UCameraComponent* PlayerCamera;
 	
 };
