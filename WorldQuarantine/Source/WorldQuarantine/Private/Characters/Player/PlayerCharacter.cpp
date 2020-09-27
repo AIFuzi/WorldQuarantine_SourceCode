@@ -5,20 +5,31 @@
 
 APlayerCharacter::APlayerCharacter()
 {
-	SprintArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	SprintArm->SetupAttachment(GetMesh());
-	SprintArm->bUsePawnControlRotation = true;
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	SpringArm->SetupAttachment(GetMesh());
 
 	PlayerCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("PlayeCamera"));
-	PlayerCamera->SetupAttachment(SprintArm);
+	PlayerCamera->SetupAttachment(SpringArm);
 }
 
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
 }
 
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void APlayerCharacter::StartSprint()
+{
+	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+}
+
+void APlayerCharacter::StopSprint()
+{
+	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
 }

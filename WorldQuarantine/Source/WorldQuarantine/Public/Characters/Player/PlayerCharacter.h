@@ -23,9 +23,25 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerDefault)
-		class USpringArmComponent* SprintArm;
+		class USpringArmComponent* SpringArm;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerDefault)
 		class UCameraComponent* PlayerCamera;
+
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
+		float WalkSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
+		float SprintSpeed;
+
+public:
+
+	UFUNCTION(BlueprintCallable, Category = Movement)
+		void StartSprint();
+
+	UFUNCTION(BlueprintCallable, Category = Movement)
+		void StopSprint();
 	
 };
