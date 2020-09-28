@@ -33,6 +33,9 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = CharacterDefault)
+		class UHealthComponent* HealthComponent;
+
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
