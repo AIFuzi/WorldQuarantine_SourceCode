@@ -4,8 +4,8 @@
 #include "Components/ActorComponent.h"
 #include "HealthComponent.generated.h"
 
-//DECLARE_DYNAMIC_MULTICAST_DELEGATE(FStaminaEnded);
-//DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHealthEnded);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FStaminaEnded);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHealthEnded);
 
 UCLASS(Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class WORLDQUARANTINE_API UHealthComponent : public UActorComponent
@@ -27,11 +27,11 @@ public:
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	//UPROPERTY(BlueprintAssignable, Category = Health)
-	//	FHealthEnded OnHealthEndedEvent;
+	UPROPERTY(BlueprintAssignable, Category = Health)
+		FHealthEnded OnHealthEndedEvent;
 
-	//UPROPERTY(BlueprintAssignable, Category = Stamina)
-	//	FStaminaEnded OnStaminaEndedEvent;
+	UPROPERTY(BlueprintAssignable, Category = Stamina)
+		FStaminaEnded OnStaminaEndedEvent;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
 		float MaxHealth;

@@ -45,7 +45,11 @@ void UHealthComponent::DecreaseStamina()
 {
 	Stamina -= SprintUseStamina;
 	Stamina = FMath::Clamp(Stamina, 0.f, MaxStamina);
-	if (Stamina <= 0.f) StopUseStamina();
+	if (Stamina <= 0.f)
+	{
+		StopUseStamina();
+		OnStaminaEndedEvent.Broadcast();
+	}
 }
 
 void UHealthComponent::StartRegenStamina()
