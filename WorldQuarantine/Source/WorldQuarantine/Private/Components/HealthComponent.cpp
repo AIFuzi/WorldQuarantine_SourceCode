@@ -19,3 +19,13 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 }
 
+void UHealthComponent::UseHealth(float UseHealth)
+{
+	Health -= UseHealth;
+}
+
+void UHealthComponent::UseStamina(float UseStamina)
+{
+	Stamina -= UseStamina;
+}
+
