@@ -16,7 +16,7 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
+	
 }
 
 void APlayerCharacter::Tick(float DeltaTime)
@@ -24,12 +24,4 @@ void APlayerCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void APlayerCharacter::StartSprint()
-{
-	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
-}
 
-void APlayerCharacter::StopSprint()
-{
-	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
-}
