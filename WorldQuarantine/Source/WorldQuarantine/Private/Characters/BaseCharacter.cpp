@@ -31,9 +31,11 @@ void ABaseCharacter::Tick(float DeltaTime)
 void ABaseCharacter::StartSprint()
 {
 	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+	CharMovementType = EMovementType::Sprint;
 }
 
 void ABaseCharacter::StopSprint()
 {
 	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
+	CharMovementType = EMovementType::Walk;
 }
