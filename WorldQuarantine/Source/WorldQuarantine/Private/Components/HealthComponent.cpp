@@ -22,6 +22,8 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 void UHealthComponent::UseHealth(float UseHealth)
 {
 	Health -= UseHealth;
+	Health = FMath::Clamp(Health, 0.f, MaxHealth);
+	if (Health <= 0.f) OnHealthEndedEvent.Broadcast();
 }
 
 void UHealthComponent::UseStamina(float UseStamina)
