@@ -33,7 +33,7 @@ void ABaseCharacter::Tick(float DeltaTime)
 
 void ABaseCharacter::StartSprint()
 {
-	if (HealthComponent->Stamina >= HealthComponent->SprintUseStamina)
+	if (HealthComponent->Stamina >= (HealthComponent->SprintUseStamina * 2.f))
 	{
 		GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
 		CharMovementType = EMovementType::Sprint;
