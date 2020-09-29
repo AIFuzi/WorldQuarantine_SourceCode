@@ -19,3 +19,8 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 }
 
+TArray<class UItemInfo*> UInventoryComponent::GetItems()
+{
+	return Items;
+}
+

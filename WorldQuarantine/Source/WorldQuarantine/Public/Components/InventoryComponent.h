@@ -18,9 +18,27 @@ protected:
 
 	virtual void BeginPlay() override;
 
+	TArray<class UItemInfo*> Items;
+
 public:	
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
+		int ItemSize;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
+		float InventoryMaxWeight;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
+		float InventoryCurrentWeight;
+
+public:
+
+	UFUNCTION(BlueprintPure, Category = Inventory)
+		TArray<class UItemInfo*> GetItems();
+
+private:
 
 		
 };
