@@ -33,7 +33,34 @@ void UInventoryComponent::AddItemToInventory(AItemActor* AddedItem, bool& CanAdd
 	{
 		if (CanItemAddedToInventory(AddedItem))
 		{
-			SetAddItem(AddedItem);
+			if (AddedItem->CanBeStack && Items.Num() > 0)
+			{
+				bool ItemFound = false;
+				int StackIndex = 0;
+
+				for (int32 i = 0; i < Items.Num(); i++)
+				{
+					FItemStruct StackItem = Items[i];
+					StackIndex = i;
+
+					if (AddedItem->ItemName == StackItem.ItemName)
+					{
+						ItemFound = true;
+						break;
+					}
+				}
+				if (ItemFound)
+				{
+					FItemStruct CountStackToAdd;
+					CountStackToAdd = Items[StackIndex];
+					CountStackToAdd.ItemCount += AddedItem->ItemCount;
+
+					Items[StackIndex] = CountStackToAdd;
+
+				}
+				else SetAddItem(AddedItem);
+			}
+			else SetAddItem(AddedItem);
 		}
 	}
 }
