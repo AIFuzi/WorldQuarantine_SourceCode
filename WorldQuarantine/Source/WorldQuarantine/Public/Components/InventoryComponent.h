@@ -37,6 +37,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 		bool bItemEquipable;
+
+	UPROPERTY(BlueprintReadWrite)
+		TSubclassOf<class AItemActor> ItemClass;
 };
 
 UCLASS(Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )

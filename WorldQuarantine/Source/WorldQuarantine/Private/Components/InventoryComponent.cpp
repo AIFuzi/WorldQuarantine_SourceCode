@@ -96,8 +96,10 @@ void UInventoryComponent::SetAddItem(AItemActor* AddItem)
 	ItemToAdd.bItemStack = AddItem->CanBeStack;
 	ItemToAdd.bItemUsable = AddItem->ItemUsable;
 	ItemToAdd.bItemEquipable = AddItem->ItemEquipable;
+	ItemToAdd.ItemClass = AddItem->GetClass();
 	
 	UpdateCurrentWeight(AddItem->ItemWeight, EItemUpdateType::AddItem);
 	Items.Add(ItemToAdd);
+	AddItem->Destroy(true);
 }
 
