@@ -42,7 +42,7 @@ public:
 		bool CanBeStack;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item, meta = (ExposeOnSpawn))
-		int ItemCount;
+		int ItemCount = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item, meta = (ExposeOnSpawn))
 		bool ItemUsable;
