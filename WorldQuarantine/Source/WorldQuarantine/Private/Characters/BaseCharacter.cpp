@@ -20,10 +20,10 @@ void ABaseCharacter::BeginPlay()
 	
 }
 
-float ABaseCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	return Damage;
-}
+//float ABaseCharacter::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+//{
+//	return Damage;
+//}
 
 void ABaseCharacter::Tick(float DeltaTime)
 {
