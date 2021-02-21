@@ -4,14 +4,6 @@
 #include "GameFramework/Actor.h"
 #include "ItemActor.generated.h"
 
-UENUM(BlueprintType)
-enum class EItemType : uint8
-{
-	None			UMETA(DisplayName = "None"),
-	Usable			UMETA(DisplayName = "Usable"),
-	Weapon			UMETA(DisplayName = "Weapon")
-};
-
 UCLASS()
 class WORLDQUARANTINE_API AItemActor : public AActor
 {
@@ -29,8 +21,8 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item)
-		EItemType ItemType;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item)
+	//	EItemType ItemType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Item, meta = (ExposeOnSpawn))
 		FName ItemName;
